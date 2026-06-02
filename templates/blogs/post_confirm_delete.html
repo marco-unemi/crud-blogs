@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Eliminar publicacion | CRUD de Blogs{% endblock %}
+
+{% block content %}
+  <div class="page-header">
+    <h2>Eliminar publicacion</h2>
+  </div>
+  <p>Estas seguro de eliminar "{{ object.title }}"?</p>
+  <form method="post" class="form-card">
+    {% csrf_token %}
+    <div class="actions">
+      <button type="submit" class="danger">Eliminar</button>
+      <a href="{% url 'blogs:post_detail' object.pk %}">Cancelar</a>
+    </div>
+  </form>
+{% endblock %}

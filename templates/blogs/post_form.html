@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}{% if form.instance.pk %}Editar{% else %}Nueva{% endif %} publicacion | CRUD de Blogs{% endblock %}
+
+{% block content %}
+  <div class="page-header">
+    <h2>{% if form.instance.pk %}Editar{% else %}Nueva{% endif %} publicacion</h2>
+  </div>
+  <form method="post" class="form-card">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div class="actions">
+      <button type="submit" class="button">Guardar</button>
+      <a href="{% url 'blogs:post_list' %}">Cancelar</a>
+    </div>
+  </form>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Publicaciones | CRUD de Blogs{% endblock %}
+
+{% block content %}
+  <div class="page-header">
+    <h2>Publicaciones</h2>
+    <a class="button" href="{% url 'blogs:post_create' %}">Crear publicacion</a>
+  </div>
+
+  {% if posts %}
+    <ul class="post-list">
+      {% for post in posts %}
+        <li class="post-card">
+          <h3><a href="{% url 'blogs:post_detail' post.pk %}">{{ post.title }}</a></h3>
+          <p class="meta">Creada: {{ post.created_at|date:"Y-m-d H:i" }}</p>
+          <p class="excerpt">{{ post.content|truncatechars:160 }}</p>
+          <div class="actions">
+            <a href="{% url 'blogs:post_update' post.pk %}">Editar</a>
+            <a class="danger" href="{% url 'blogs:post_delete' post.pk %}">Eliminar</a>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No hay publicaciones aun. Crea la primera.</p>
+  {% endif %}
+{% endblock %}
