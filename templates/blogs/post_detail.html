@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}{{ post.title }} | CRUD de Blogs{% endblock %}
+
+{% block content %}
+  <article class="post-detail">
+    <div class="page-header">
+      <h2>{{ post.title }}</h2>
+      <div class="actions">
+        <a href="{% url 'blogs:post_update' post.pk %}">Editar</a>
+        <a class="danger" href="{% url 'blogs:post_delete' post.pk %}">Eliminar</a>
+      </div>
+    </div>
+    <p class="meta">Creada: {{ post.created_at|date:"Y-m-d H:i" }} | Actualizada: {{ post.updated_at|date:"Y-m-d H:i" }}</p>
+    <div class="content">
+      {{ post.content|linebreaks }}
+    </div>
+    <p><a href="{% url 'blogs:post_list' %}">Volver a publicaciones</a></p>
+  </article>
+{% endblock %}
