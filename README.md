@@ -27,8 +27,9 @@ Aplicar conceptos de gestión de versiones, administración del cambio, gestión
 | Integrante | Rol |
 |---|---|
 | Marco David Arteaga Zambrano | Líder de proyecto / Backend |
-| Randy Joel Medina Narváez | Frontend / Documentador |
+| Diego Alejandro Neira Garcia | Frontend |
 | Carlos Gabriel Carriel Macías | Operaciones / Despliegue |
+| Victor Alejandro Celi Rivadeneira | Documentador |
 
 ## Ejecución local
 
